@@ -1,0 +1,10 @@
+clients
+employés
+commandes
+produits
+***un client passe des commandes 
+******client vers commande 1,*
+******commande vers client 1,1
+******commande vers produit 1,*
+******employé vers commande 1,*
+
