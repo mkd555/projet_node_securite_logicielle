@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default function (sequelize) {
-  const Client = sequelize.define("Client", {
+  const Client = sequelize.define("client", {
     id: {
       type: DataTypes.INTEGER, // Correction : autoIncrement doit être INTEGER et non STRING
       primaryKey: true,

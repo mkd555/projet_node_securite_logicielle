@@ -19,7 +19,7 @@ export const getEmploye = (req, res) => {
       res.status(200).json(client);
     })
     .catch((error) => {
-      res.status(404).send(error);
+      res.status(404).json(error);
     });
 };
 
@@ -31,7 +31,7 @@ export const getEmployeByID = (req, res) => {
       res.status(200).json(employe);
     })
     .catch((err) => {
-      res.status(404).send(err);
+      res.status(404).json(err);
     });
 };
 //Delete Employe
@@ -74,7 +74,7 @@ export const addProduit = (req, res) => {
 //Get all Produit
 export const getproduit = (req,res) =>{
     Produit.findAll().then((produit)=>{
-        res.status(200).send(produit)
+        res.status(200).json(produit)
     }).catch((err) => {
         res.status(404).json({ error: err.message });
       })
@@ -84,7 +84,7 @@ export const getproduit = (req,res) =>{
 export const getProduitByID = (req,res) =>{
     Produit.findByPk(req.params.id)
     .then((prod)=>{
-        res.status(200).send(prod)
+        res.status(200).json(prod)
     }).catch((err) =>{
         res.status(404).json({ error: err.message });
     })

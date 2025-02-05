@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default function (sequelize) {
-  const Commande = sequelize.define("Commande", {
+  const Commande = sequelize.define("commande", {
     id: {
       type: DataTypes.INTEGER,
       primaryKey: true,
