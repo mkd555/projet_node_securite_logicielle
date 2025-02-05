@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize";
 import dotenv from "dotenv";
-import Client from "../models/clientModel";
-import Employe from "../models/employeModel";
-import Commande from "../models/commandeModel";
-import Produit from "../models/produitModel";
+import ClientModel from "../models/clientModel.js";
+import EmployeModel from "../models/employeModel.js";
+import CommandeModel from "../models/commandeModel.js";
+import ProduitModel from "../models/produitModel.js";
 
 dotenv.config();
 console.log(process.env.DB_USER);
@@ -16,13 +16,26 @@ const sequelize = new Sequelize( // Ajout de "new"
   {
     host: process.env.HOST,
     port: process.env.DB_PORT,
-    dialect: "mysql",
+    dialect: "mysql", 
   }
 );
+//Initializing models
+const Commande = CommandeModel(sequelize);
+const Produit = ProduitModel(sequelize);
+const Client = ClientModel(sequelize)
+const Employe = EmployeModel(sequelize)
 
+
+//Many to many between Cammande and Produit
 Commande.belongsToMany(Produit, { through: "comm_prod", onDelete: "cascade" });
 Produit.belongsToMany(Commande, { through: "comm_prod", onDelete: "cascade" });
 
+//One to many between client and Commande
 Client.hasMany(Commande, { as: "commandes", onDelete: "cascade" });
 Commande.belongsTo(Client);
+
+//Many to many between Employe and Commande 
+Commande.belongsToMany(Employe, { through: "comm_emp", onDelete: "cascade" });
+Employe.belongsToMany(Commande, { through: "comm_emp", onDelete: "cascade" });
+
 export default sequelize;

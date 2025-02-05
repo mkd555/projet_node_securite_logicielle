@@ -1,7 +1,7 @@
-import sequelize from "../config/sequelize.js";
 import { DataTypes } from "sequelize";
 
-const Employe = sequelize.define("Employe", {
+export default function(sequelize){
+const Employe = sequelize.define("employe", {
   id: {
     type: DataTypes.INTEGER, // Correction : autoIncrement doit être INTEGER et non STRING
     primaryKey: true,
@@ -25,5 +25,6 @@ const Employe = sequelize.define("Employe", {
     allowNull: false,
   },
 });
+return Employe
+}
 
-export default Employe;

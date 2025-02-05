@@ -1,6 +1,6 @@
-import sequelize from "../config/sequelize";
 import { DataTypes } from "sequelize";
 
+export default function(sequelize){
 const Commande = sequelize.define("commande", {
   id: {
     type: DataTypes.INTEGER,
@@ -12,4 +12,5 @@ const Commande = sequelize.define("commande", {
     allowNull: false,
   },
 });
-export default Commande;
+return Commande
+}
