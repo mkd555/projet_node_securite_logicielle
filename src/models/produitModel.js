@@ -20,7 +20,6 @@ const Produit = sequelize.define("Produit", {
     type: DataTypes.INTEGER,
     allowNull: false,
   },
-  
 });
 
 export default Produit;
