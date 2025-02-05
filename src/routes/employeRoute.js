@@ -1,12 +1,48 @@
 import express from "express";
-import { addEmploye, deleteEmploye, getEmploye, getEmployeByID, updateEmploye } from "../controllers/employeController.js";
+import {
+  addEmploye,
+  deleteEmploye,
+  getEmploye,
+  getEmployeByID,
+  updateEmploye,
+} from "../controllers/employeController.js";
 
-const router = express.Router();
+import {
+  authorizeRole,
+  middlewareAuthentication,
+} from "../middleware/middlewareAuth.js";
 
-router.post("/add", addEmploye);
-router.get("/all", getEmploye);
-router.get("/getOne/:id", getEmployeByID);
-router.delete("/delete/:id", deleteEmploye);
-router.put("/update/:id", updateEmploye);
+const employeRouter = express.Router();
 
-export default router;
+employeRouter.post(
+  "/add",
+  middlewareAuthentication,
+  authorizeRole(["admin", "employer"]),
+  addEmploye
+);
+employeRouter.get(
+  "/all",
+  middlewareAuthentication,
+  authorizeRole(["admin", "employer"]),
+  getEmploye
+);
+employeRouter.get(
+  "/getOne/:id",
+  middlewareAuthentication,
+  authorizeRole(["admin", "employer"]),
+  getEmployeByID
+);
+employeRouter.delete(
+  "/delete/:id",
+  middlewareAuthentication,
+  authorizeRole(["admin", "employer"]),
+  deleteEmploye
+);
+employeRouter.put(
+  "/update/:id",
+  middlewareAuthentication,
+  authorizeRole(["admin", "employer"]),
+  updateEmploye
+);
+
+export default employeRouter;

@@ -8,7 +8,7 @@ const PORT = process.env.PORT || 3000;
 app.listen(PORT, (req, res) => {
   console.log(`Server running on PORT: ${PORT}`);
   sequelize
-    .sync()
+    .sync({ alter: true })
     .then(() => {
       console.log("creation des tables avec success");
     })
