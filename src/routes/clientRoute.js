@@ -5,6 +5,7 @@ import {
   getClientByID,
   updateClient,
   deleteClient,
+  getClientCommande,
 } from "../controllers/clientController.js";
 import {
   authorizeRole,
@@ -44,4 +45,5 @@ clientRouter.delete(
   deleteClient
 );
 
+clientRouter.get("/getCom",getClientCommande)
 export default clientRouter;
