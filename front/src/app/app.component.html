@@ -1,0 +1,8 @@
+<ng-container *ngIf="isRouterOutletOnly(); else menuTemplate">
+    <router-outlet></router-outlet>
+  </ng-container>
+  
+  <ng-template #menuTemplate>
+    <app-side-menu></app-side-menu>
+  </ng-template>
+  

@@ -1,0 +1,72 @@
+<button  mat-raised-button color="accent" routerLink="/produit" style="background-color:sienna;color:white" routerLinkActive="router-link-active">Liste des Produits</button>
+<br>
+<form [formGroup]="service.form" class="normal-form" (submit)="onSubmit()">
+    <mat-card>
+        <mat-card-content>
+            <mat-card-title>Modifier Produit</mat-card-title>
+            <mat-accordion>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> Produit </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <input type="hidden" formControlName="id">
+                    <mat-form-field>
+                        <input formControlName="nom_produit" matInput placeholder="Nom Produit">
+                    </mat-form-field>
+
+                    <mat-form-field>
+                        <input formControlName="nom_court_produit" matInput placeholder="nom court produit">
+                    </mat-form-field>
+                
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Prix Base Produit</mat-label>
+                        <input matInput type="number" placeholder="Prix Base Produit" formControlName="prix_base_produit" min="0">
+                        <span matSuffix>DH</span>
+                    </mat-form-field>
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Prix Vente Produit</mat-label>
+                        <input matInput type="number" placeholder="Prix Vente Produit" formControlName="prix_vente_produit" min="0">
+                        <span matSuffix>DH</span>
+                    </mat-form-field>
+                    
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>seuil max remise produit</mat-label>
+                        <input matInput type="number" placeholder="Seuil Max" formControlName="seuil_max_remise_produit" min="0">
+                    </mat-form-field>
+
+                    
+                    <mat-form-field>
+                        <input formControlName="unite_produit" matInput placeholder="unite produit">
+                    </mat-form-field>
+                    
+                    <mat-form-field>
+                        <input formControlName="image_produit" matInput placeholder="image produit">
+                    </mat-form-field>
+                    
+
+                    <mat-form-field appearance="fill">
+                        <mat-label>Quantite initiale stock</mat-label>
+                        <input matInput type="number" placeholder="Quantite" formControlName="quantite_initiale_stock" min="0">
+                    </mat-form-field>
+                    
+                    <mat-form-field appearance="fill">
+                        <mat-label>Quantite actuel stock</mat-label>
+                        <input matInput type="number" placeholder="Quantite" formControlName="quantite_actuel_stock" min="0">
+                    </mat-form-field>
+                    
+                </mat-expansion-panel>
+
+
+
+            </mat-accordion>
+        </mat-card-content>
+        <div class="button-row">
+            <button mat-raised-button type="submit" [disabled]="service.form.invalid" style="background-color:rgb(7, 101, 2);color:white">Mettre à jour</button>
+            <button mat-raised-button type="reset" style="background-color:rgb(147, 4, 4);color:white" (click)="onClear()">Effacer</button>
+        </div>
+    </mat-card>
+
+</form>

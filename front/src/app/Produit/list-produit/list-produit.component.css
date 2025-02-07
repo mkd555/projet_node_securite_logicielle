@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+  }
+  
+  th.mat-sort-header-sorted {
+    color: black;
+  }
+  
+  .mat-form-field {
+    font-size: 14px;
+    width: 100%;
+  }
+  
+  .material-icons.orange600 {
+    color: #6f3f04;
+  }
+  
+  .material-icons.green {
+    color: #013964;
+  }
+
+  button {
+    margin-right: 8px;
+    margin-bottom: 30px;
+  }
+
+  
+  

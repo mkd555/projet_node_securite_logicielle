@@ -1,0 +1,72 @@
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+</head>
+<div class="container text-center">
+    <div class="screen" style="margin-left: 0px;">
+        <div class="screen__content">
+            <form class="login" method="POST" action="/register">
+                <!-- Champ pour le nom -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-user"></i>
+                    <input type="text" class="login__input" name="first_name" placeholder="First Name" required pattern="[A-Za-z]+">
+                    <!-- Validation pour accepter uniquement les lettres alphabétiques -->
+                </div>
+                <!-- Champ pour le prénom -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-user"></i>
+                    <input type="text" class="login__input" name="last_name" placeholder="Last Name" required pattern="[A-Za-z]+">
+                    <!-- Validation pour accepter uniquement les lettres alphabétiques -->
+                </div>
+                <!-- Champ pour le numéro de téléphone -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-phone"></i>
+                    <input type="tel" class="login__input" name="phone" placeholder="Phone Number" required pattern="^\+?[0-9]{10,15}$">
+                    <!-- Validation pour accepter des numéros de téléphone au format international -->
+                </div>
+                <!-- Champ pour l'adresse -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-home"></i>
+                    <input type="text" class="login__input" name="address" placeholder="Address" required>
+                    <!-- Aucune validation spécifique mais il est requis -->
+                </div>
+                <!-- Champ pour le nom d'utilisateur / Email -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-user"></i>
+                    <input type="email" class="login__input" name="email" placeholder="User name / Email" required>
+                    <!-- L'attribut 'required' garantit que le champ est non vide -->
+                </div>
+                <!-- Champ pour le mot de passe -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input type="password" class="login__input" name="password" placeholder="Password" required minlength="8">
+                    <!-- Validation pour un mot de passe fort avec une longueur minimale de 8 caractères -->
+                </div>
+                <!-- Champ pour confirmer le mot de passe -->
+                <div class="login__field">
+                    <i class="login__icon fas fa-lock"></i>
+                    <input type="password" class="login__input" name="confirm_password" placeholder="Confirm Password" required minlength="8">
+                    <!-- Validation du mot de passe par rapport à la confirmation -->
+                </div>
+                <!-- Bouton d'inscription -->
+                <button type="submit" class="button login__submit">
+                    <span class="button__text">Sign Up</span>
+                    <i class="button__icon fas fa-chevron-right"></i>
+                </button>  
+            </form>
+
+            <div>
+                <p style="color: black;">Vous avez déjà un compte? <a href="/connexion" style="color: sienna;"><em> Se Connecter </em></a></p>
+                <br><a href="/" style="color: rgb(45, 160, 139);"><strong> Accueil </strong></a>
+            </div>
+            <!-- Message d'erreur ou confirmation de réussite -->
+            <div class="error-message" id="error-message"></div>
+        </div>
+        <div class="screen__background">
+            <span class="screen__background__shape screen__background__shape4"></span>
+            <span class="screen__background__shape screen__background__shape3"></span>        
+            <span class="screen__background__shape screen__background__shape2"></span>
+            <span class="screen__background__shape screen__background__shape1"></span>
+        </div>       
+    </div>
+</div>

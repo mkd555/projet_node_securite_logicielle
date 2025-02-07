@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>FitApp - Mobile App HTML Template</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="/assets/img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500&family=Jost:wght@500;600;700&display=swap" rel="stylesheet"> 
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/assets/lib/animate/animate.min.css" rel="stylesheet">
+
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Template Stylesheet -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+</head>
+
+<body data-bs-spy="scroll" data-bs-target=".navbar" data-bs-offset="51">
+    <div class="container-xxl bg-white p-0">
+
+
+        <!-- Navbar & Hero Start -->
+        <div class="container-xxl position-relative p-0" id="home">
+            <nav class="navbar navbar-expand-lg navbar-light ">
+                <a href="" class="navbar-brand p-0" style="width: 200px">
+                 <img src="/assets/img/logoApres.png" alt="Logo" style="border-radius: 100%;width: 160px;height:160px">
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                    <span class="fa fa-bars"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <div class="navbar-nav mx-auto py-0">
+                        <a href="#home" class="nav-item nav-link active">Accueil</a>
+                        <a href="#about" class="nav-item nav-link">A Propos</a>
+                        <a href="#feature" class="nav-item nav-link">Produits</a>
+                        <a href="#contact" class="nav-item nav-link">Contact</a>
+                    </div>
+                    <a href="/connexion" class="btn btn-primary-gradient rounded-pill py-2 px-4 ms-3 d-none d-lg-block">Connexion</a>
+                </div>
+            </nav>
+
+            <div class="container-xxl bg-primary hero-header">
+                <div class="container px-lg-5">
+                    <div class="row g-5">
+                        <div class="col-lg-8 text-center text-lg-start">
+                            <h1 class="text-white mb-4 animated slideInDown">Bienvenue sur la plateforme de gestion des commandes sécurisée</h1><br><br>
+                            <p class="text-white mb-4 animated fadeInUp">
+                                Simplifiez la gestion de vos commandes avec notre plateforme sécurisée et intuitive. 
+                                Suivez vos transactions en temps réel et bénéficiez d'une expérience utilisateur optimale.
+                            </p><br><br><br><br>
+                            <a href="#about" class="btn btn-primary-gradient py-sm-3 px-4 px-sm-5 rounded-pill me-3 animated slideInLeft">En savoir plus</a>
+                            <a href="/inscription" class="btn btn-secondary-gradient py-sm-3 px-4 px-sm-5 rounded-pill animated slideInRight">Inscription</a>
+                        </div>
+                        <div class="col-lg-4 d-flex justify-content-center justify-content-lg-end wow fadeInUp" data-wow-delay="0.3s">
+                            <div class="owl-carousel screenshot-carousel">
+                                <img class="img-fluid" src="/assets/img/screenshot-1.png" alt="">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Navbar & Hero End -->
+
+
+    <!-- À Propos Début -->
+<div class="container-xxl py-5" id="about">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
+                <h5 class="text-primary-gradient fw-medium">À Propos</h5>
+                <h1 class="mb-4">Jakar-Sénégal, Votre Fournisseur de Confiance</h1>
+                <p class="mb-4">
+                    Jakar-Sénégal est une entreprise spécialisée dans la vente de produits de qualité au meilleur prix.
+                    Nous nous engageons à offrir une expérience d'achat simple, rapide et sécurisée, avec une livraison 
+                    fiable partout au Sénégal.
+                </p>
+                <div class="row g-4 mb-4">
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.5s">
+                        <div class="d-flex">
+                            <i class="fa fa-warehouse fa-2x text-primary-gradient flex-shrink-0 mt-1"></i>
+                            <div class="ms-3">
+                                <h2 class="mb-0" data-toggle="counter-up">10,000+</h2>
+                                <p class="text-primary-gradient mb-0">Produits en Stock</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 wow fadeIn" data-wow-delay="0.7s">
+                        <div class="d-flex">
+                            <i class="fa fa-shipping-fast fa-2x text-secondary-gradient flex-shrink-0 mt-1"></i>
+                            <div class="ms-3">
+                                <h2 class="mb-0" data-toggle="counter-up">5,000+</h2>
+                                <p class="text-secondary-gradient mb-0">Livraisons Réalisées</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="/connexion" class="btn btn-primary-gradient py-sm-3 px-4 px-sm-5 rounded-pill mt-3">Explorer Nos Produits</a>
+            </div>
+            <div class="col-lg-6" >
+                <video id="myVideo" class="img-fluid wow fadeInUp" data-wow-delay="0.5s" autoplay muted loop playsinline style="border-radius: 10px;">
+                    <source src="/assets/img/v1.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+                
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        let video = document.getElementById("myVideo");
+                        video.play().catch(error => console.log("Autoplay bloqué :", error));
+                    });
+                </script>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<!-- À Propos Fin -->
+
+
+
+<!-- Produits Début -->
+<div class="container-xxl py-5" id="feature">
+    <div class="container py-5 px-lg-5">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="text-primary-gradient fw-medium">Nos Matériels Électroniques</h5>
+            <h1 class="mb-5">Découvrez Nos Meilleurs Produits</h1>
+        </div>
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s" >
+                <div class="product-item bg-light rounded p-4 text-center" style="background-color:rgb(1, 28, 87) !important">
+                    <img src="/assets/img/ordi.jpeg" class="img-fluid mb-3" alt="Ordinateur Portable">
+                    <h5 class="mb-3" style="color: white;">Ordinateur Portable</h5>
+                    <p class="m-0" style="color: white;">Puissant et performant, idéal pour le travail et les études.</p>
+                    <a href="/connexion" class="btn btn-primary-gradient mt-3">Voir Détails</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="product-item bg-light rounded p-4 text-center" style="background-color:rgb(1, 28, 87) !important">
+                    <img src="/assets/img/iphone.jpg" class="img-fluid mb-3" alt="Smartphone">
+                    <h5 class="mb-3" style="color: white;">Smartphone</h5>
+                    <p class="m-0" style="color: white;">Dernière génération avec appareil photo haute qualité et grande autonomie.</p>
+                    <a href="/connexion" class="btn btn-primary-gradient mt-3">Voir Détails</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="product-item bg-light rounded p-4 text-center" style="background-color:rgb(1, 28, 87) !important">
+                    <img src="/assets/img/ipad.jpeg" class="img-fluid mb-3" alt="Tablette">
+                    <h5 class="mb-3" style="color: white;">Tablette</h5>
+                    <p class="m-0" style="color: white;">Parfaite pour le divertissement et le travail en mobilité.</p>
+                    <a href="/connexion" class="btn btn-primary-gradient mt-3">Voir Détails</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="product-item bg-light rounded p-4 text-center" style="background-color:rgb(1, 28, 87) !important">
+                    <img src="/assets/img/tv.jpeg" class="img-fluid mb-3" alt="Télévision 4K">
+                    <h5 class="mb-3" style="color: white;">Télévision 4K</h5>
+                    <p class="m-0" style="color: white;">Image ultra-HD, couleurs éclatantes et son immersif.</p>
+                    <a href="/connexion" class="btn btn-primary-gradient mt-3">Voir Détails</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="product-item bg-light rounded p-4 text-center" style="background-color:rgb(1, 28, 87) !important">
+                    <img src="/assets/img/casque.png" class="img-fluid mb-3" alt="Casque Audio">
+                    <h5 class="mb-3" style="color: white;">Casque Audio</h5>
+                    <p class="m-0" style="color: white;">Son haute définition avec réduction de bruit active.</p>
+                    <a href="/connexion" class="btn btn-primary-gradient mt-3">Voir Détails</a>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="product-item bg-light rounded p-4 text-center" style="background-color:rgb(1, 28, 87) !important">
+                    <img src="/assets/img/watch.jpeg" class="img-fluid mb-3" alt="Montre Connectée">
+                    <h5 class="mb-3" style="color: white;">Montre Connectée</h5>
+                    <p class="m-0" style="color: white;">Suivi de santé, notifications et design <br>élégant.</p>
+                    <a href="/connexion" class="btn btn-primary-gradient mt-3">Voir Détails</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Produits Fin -->
+
+
+
+    <!-- Téléchargement Début -->
+<div class="container-xxl py-5">
+    <div class="container py-5 px-lg-5">
+        <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+                <video id="myVideo" class="img-fluid wow fadeInUp" data-wow-delay="0.5s" autoplay muted loop playsinline style="border-radius: 10px;">
+                    <source src="/assets/img/v1.mp4" type="video/mp4">
+                    Votre navigateur ne supporte pas la vidéo.
+                </video>
+                
+                <script>
+                    document.addEventListener("DOMContentLoaded", function() {
+                        let video = document.getElementById("myVideo");
+                        video.play().catch(error => console.log("Autoplay bloqué :", error));
+                    });
+                </script>
+                
+            </div>
+            <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                <h5 class="text-primary-gradient fw-medium">Bienvenue sur notre boutique en ligne</h5>
+                <h1 class="mb-4">Découvrez nos derniers produits</h1>
+                <p class="mb-4">Explorez une large gamme de produits adaptés à vos besoins. Des appareils électroniques à la décoration intérieure, nous avons tout ce qu'il vous faut pour améliorer votre quotidien.</p>
+                <p class="mb-4 text-warning">La boutique est en construction. Restez à l'écoute pour nos mises à jour de produits et nouvelles sorties !</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Téléchargement Fin -->
+
+
+    
+
+<!-- Contact Début -->
+<div class="container-xxl py-5" id="contact">
+    <div class="container py-5 px-lg-5">
+        <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+            <h5 class="text-primary-gradient fw-medium">Contactez-nous</h5>
+            <h1 class="mb-5">Prenez contact avec nous !</h1>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-9">
+                <div class="wow fadeInUp" data-wow-delay="0.3s">
+                    <p class="text-center mb-4">Vous avez des questions ou des demandes concernant nos produits ? Remplissez le formulaire ci-dessous, et nous vous répondrons dans les plus brefs délais.</p>
+                    <form>
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="name" placeholder="Votre nom">
+                                    <label for="name">Votre nom</label>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-floating">
+                                    <input type="email" class="form-control" id="email" placeholder="Votre email">
+                                    <label for="email">Votre email</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <input type="text" class="form-control" id="subject" placeholder="Objet">
+                                    <label for="subject">Objet</label>
+                                </div>
+                            </div>
+                            <div class="col-12">
+                                <div class="form-floating">
+                                    <textarea class="form-control" placeholder="Laissez votre message ici" id="message" style="height: 150px"></textarea>
+                                    <label for="message">Message</label>
+                                </div>
+                            </div>
+                            <div class="col-12 text-center">
+                                <button class="btn btn-primary-gradient rounded-pill py-3 px-5" type="submit">Envoyer le message</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Contact Fin -->
+        
+
+        <!-- Footer Start -->
+        <div class="container-fluid bg-primary text-light footer wow fadeIn" data-wow-delay="0.1s">
+            <div class="container py-5 px-lg-5">
+                <div class="row g-5">
+                    <div class="col-md-6 col-lg-3">
+                        <h4 class="text-white mb-4">Adresse de la boutique</h4>
+                <p><i class="fa fa-envelope me-3"></i>support@votre-boutique.com</p>
+                <div class="d-flex pt-2">
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+                </div>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h4 class="text-white mb-4">Liens rapides</h4>
+                <a class="btn btn-link" href="">Accueil</a>
+                <a class="btn btn-link" href="">Shop</a>
+                <a class="btn btn-link" href="">À propos</a>
+                <a class="btn btn-link" href="">Contact</a>
+                <a class="btn btn-link" href="">Conditions Générales</a>
+                    </div>
+                    <div class="col-md-6 col-lg-3">
+                        <h4 class="text-white mb-4">Catégories populaires</h4>
+                        <a class="btn btn-link" href="">Électronique</a>
+                        <a class="btn btn-link" href="">Décoration intérieure</a>
+                        <a class="btn btn-link" href="">Mode</a>
+                        <a class="btn btn-link" href="">Beauté et santé</a>
+                        <a class="btn btn-link" href="">Jouets et jeux</a>
+        
+                    </div>
+                  
+                </div>
+            </div>
+            <div class="container px-lg-5">
+                <div class="copyright">
+                    <div class="row">
+                        <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
+                            &copy; <a class="border-bottom" href="#">Jakar-Senegal</a>, Tous droits réservés.
+                            Conçu par <a class="border-bottom" href="#">Jean, Aminata, Korka, Adja, Raky</a>
+                        </div>
+                        <div class="col-md-6 text-center text-md-end">
+                            <div class="footer-menu">
+                                <a href="">Politique de confidentialité</a>
+                                <a href="">Aide</a>
+                                <a href="">FAQ</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer End -->
+
+
+        <!-- Back to Top -->
+        <a href="#" class="btn btn-lg btn-lg-square back-to-top pt-2"><i class="bi bi-arrow-up text-white"></i></a>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/assets/lib/wow/wow.min.js"></script>
+    <script src="/assets/lib/easing/easing.min.js"></script>
+    <script src="/assets/lib/waypoints/waypoints.min.js"></script>
+    <script src="/assets/lib/counterup/counterup.min.js"></script>
+    <script src="/assets/lib/owlcarousel/owl.carousel.min.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="/assets/js/main.js"></script>
+</body>
+
+</html>

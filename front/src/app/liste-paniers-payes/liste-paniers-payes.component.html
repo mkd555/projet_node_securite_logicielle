@@ -1,0 +1,28 @@
+<div class="container-fluid panier-container">
+    <h2 class="section-title">🛒 Liste des Paniers Payés</h2>
+  
+    <table class="table table-bordered panier-table">
+      <thead>
+        <tr>
+          <th>Image</th>
+          <th>Produit</th>
+          <th>Quantité</th>
+          <th>Prix Unitaire (FCFA)</th>
+          <th>Total (FCFA)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let panier of paniersPayes">
+          <td><img [src]="panier.image" alt="Produit" class="produit-img"></td>
+          <td>{{ panier.produit }}</td>
+          <td>{{ panier.quantite }}</td>
+          <td>{{ panier.prixUnitaire | number }}</td>
+          <td>{{ panier.total | number }}</td>
+        </tr>
+      </tbody>
+    </table>
+  
+    <div class="total-container">
+        <h3>Solde Total : <strong>{{ totalPaye | number }} FCFA</strong></h3>
+    </div>
+</div>
