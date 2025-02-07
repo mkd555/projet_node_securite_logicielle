@@ -11,17 +11,11 @@ export const login = async (req, res) => {
   try {
     const user = await User.findOne({ where: { email } });
     if (!user) {
-      return res
-        .status(400)
-        .json({ message: `l'email n'exite pas` })
-        .send("email ou mot de passe invalide");
+      return res.status(400).json({ message: `l'email n'existe pas` }); // Utilise seulement json ici
     }
     const validPassword = await bcrypt.compare(password, user.password);
     if (!validPassword) {
-      return res
-        .status(400)
-        .json({ message: `Password invalide` })
-        .send("email ou mot de passe invalide");
+      return res.status(400).json({ message: `Password invalide` }); // Utilise seulement json ici
     }
 
     const token = jwt.sign(
