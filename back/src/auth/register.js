@@ -24,15 +24,20 @@ export const registerUserClient = async (req, res) => {
       email,
       password: hashedPassword, // Correction ici
       role:'client',
-    }).then((user)=>{
-      Client.create({
+    }).then(async (user)=>{
+      await Client.create({
         nom,
         prenom,
         telephone,
         userId:user.id
-      }
-      )
-      res.status(203).json({ message: "Utilisateur créé", user });
+      });
+      const usr = await User.findOne({
+        where: {id: user.id  },
+        include: {
+          model: Client,
+          as: "clients", 
+        }})
+      res.status(203).json({ message: "Utilisateur créé", usr });
     }).catch((error) =>{
       res.status(500).json({ message: `Erreur serveur : ${error.message}` });
     })

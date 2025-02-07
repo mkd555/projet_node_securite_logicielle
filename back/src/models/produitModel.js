@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 
 export default function (sequelize) {
-  const Produit = sequelize.define("produit", {
+  const Produit = sequelize.define("Produit", {
     id: {
       type: DataTypes.INTEGER, // Correction : autoIncrement doit être INTEGER et non STRING
       primaryKey: true,

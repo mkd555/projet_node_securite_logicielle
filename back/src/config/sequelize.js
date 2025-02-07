@@ -20,31 +20,32 @@ const sequelize = new Sequelize( // Ajout de "new"
     dialect: "mysql",
   }
 );
-// Initialisation des modèles
+// Initialisation des 
+
 const Client = ClientModel(sequelize);
 const Employe = EmployeModel(sequelize);
 const Commande = CommandeModel(sequelize);
 const Produit = ProduitModel(sequelize);
 const User = UserModel(sequelize); // Correction de la casse
 
+// One-to-One entre User et Client
+User.hasOne(Client, { foreignKey: "userId", as:'clients', onDelete: "CASCADE" });
+// One-to-One entre User et Employé
+User.hasOne(Employe, {foreignKey: "userId", as : 'employes', onDelete: "CASCADE" });
+
+// One-to-Many entre Client et Commande
+Client.hasMany(Commande, {foreignKey: "clientId", as: "commandes", onDelete: "CASCADE" });
+Commande.belongsTo(Client,{foreignKey: "clientId", as: "client", onDelete: "CASCADE" });
+
+
 // Many-to-Many entre Commande et Produit
 Commande.belongsToMany(Produit, { through: "comm_prod", onDelete: "CASCADE" });
 Produit.belongsToMany(Commande, { through: "comm_prod", onDelete: "CASCADE" });
 
-// One-to-Many entre Client et Commande
-Client.hasMany(Commande, { as: "commandes", onDelete: "CASCADE" });
-Commande.belongsTo(Client);
 
 // Many-to-Many entre Employé et Commande
 Commande.belongsToMany(Employe, { through: "comm_emp", onDelete: "CASCADE" });
 Employe.belongsToMany(Commande, { through: "comm_emp", onDelete: "CASCADE" });
 
-// One-to-One entre User et Client
-User.hasOne(Client, { foreignKey: "userId", onDelete: "CASCADE" });
-Client.belongsTo(User, { foreignKey: "userId", onDelete: "CASCADE" });
-
-// One-to-One entre User et Employé
-User.hasOne(Employe, { foreignKey: "userId", onDelete: "CASCADE" });
-Employe.belongsTo(User, { foreignKey: "userId", onDelete: "CASCADE" });
 
 export default sequelize;

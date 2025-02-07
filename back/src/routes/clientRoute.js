@@ -1,11 +1,11 @@
 import express from "express";
 import {
-  addClient,
   getClient,
   getClientByID,
   updateClient,
   deleteClient,
   getClientCommande,
+  makeanorder,
 } from "../controllers/clientController.js";
 import {
   authorizeRole,
@@ -14,12 +14,12 @@ import {
 
 const clientRouter = express.Router();
 
-clientRouter.post(
+/*clientRouter.post(
   "/add",
   middlewareAuthentication,
   authorizeRole(["admin", "client"]),
   addClient
-);
+);*/
 clientRouter.get(
   "/all",
   middlewareAuthentication,
@@ -45,5 +45,7 @@ clientRouter.delete(
   deleteClient
 );
 
-clientRouter.get("/getCom",getClientCommande)
+clientRouter.get("/getCom/:id",getClientCommande)
+
+clientRouter.post('/makeanorder/:id',makeanorder)
 export default clientRouter;

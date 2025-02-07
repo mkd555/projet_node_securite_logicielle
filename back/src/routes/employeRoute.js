@@ -1,6 +1,5 @@
 import express from "express";
 import {
-  addEmploye,
   deleteEmploye,
   getEmploye,
   getEmployeByID,
@@ -14,12 +13,6 @@ import {
 
 const employeRouter = express.Router();
 
-employeRouter.post(
-  "/add",
-  middlewareAuthentication,
-  authorizeRole(["admin", "employer"]),
-  addEmploye
-);
 employeRouter.get(
   "/all",
   middlewareAuthentication,

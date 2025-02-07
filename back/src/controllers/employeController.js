@@ -2,16 +2,7 @@ import Employe from "../models/employeModel.js";
 import Produit from "../models/produitModel.js";
 
 
-//Add Employe
-export const addEmploye = (req, res) => {
-  Employe.create(req.body)
-    .then((client) => {
-      res.status(204).json(client);
-    })
-    .catch((err) => {
-      res.status(404).json({ error: err.message });
-    });
-};
+
 //Get all Employe
 export const getEmploye = (req, res) => {
     Employe.findAll()
