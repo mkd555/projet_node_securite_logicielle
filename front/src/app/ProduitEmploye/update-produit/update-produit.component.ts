@@ -3,6 +3,8 @@ import { ProduitService } from './../../services/produit.service';
 import { Component, OnInit } from '@angular/core';
 import { Produit } from 'src/app/model/produit';
 
+import { AuthService } from 'src/app/services/auth.service'; 
+
 @Component({
   selector: 'app-update-produit',
   templateUrl: './update-produit.component.html',
@@ -25,9 +27,17 @@ export class UpdateProduitEmployeComponent implements OnInit {
   };
 
   
-  constructor(private service: ProduitService, private router: Router) {}
+  constructor(private service: ProduitService, private router: Router,private authService: AuthService) {}
 
   ngOnInit() {
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+ 
+  goHome(){
+    this.router.navigate(['']);
   }
 
   onClear() {

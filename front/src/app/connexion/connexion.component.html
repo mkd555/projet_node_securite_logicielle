@@ -1,33 +1,40 @@
 <head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
   </head>
   <div class="container text-center">
 	<div class="screen" style="margin-left: 0px;">
-		<div class="screen__content">
-			<form class="login">
-				<div class="login__field">
-					<i class="login__icon fas fa-user"></i>
-					<input type="text" class="login__input" placeholder="User name / Email">
-				</div>
-				<div class="login__field">
-					<i class="login__icon fas fa-lock"></i>
-					<input type="password" class="login__input" placeholder="Password">
-				</div>
-				<button class="button login__submit">
-					<span class="button__text">Connexion</span>
-					<i class="button__icon fas fa-chevron-right"></i>
-				</button>				
-			</form>
-			<div>
-                <p style="color: black;">Vous n'avez pas de compte? <a href="/inscription" style="color: sienna;"><em> Inscription </em></a></p>
-				<br><a href="/" style="color: rgb(45, 160, 139);"><strong> Accueil </strong></a>
-            </div>
+	  <div class="screen__content">
+		<form class="login" (ngSubmit)="login()">
+		  <div class="login__field">
+			<i class="login__icon fas fa-user"></i>
+			<input type="text" class="login__input" placeholder="Email" [(ngModel)]="email" name="email" required>
+		  </div>
+		  <div class="login__field">
+			<i class="login__icon fas fa-lock"></i>
+			<input type="password" class="login__input" placeholder="Password" [(ngModel)]="password" name="password" required>
+		  </div>
+		  <button class="button login__submit" type="submit">
+			<span class="button__text">Connexion</span>
+			<i class="button__icon fas fa-chevron-right"></i>
+		  </button>    
+		</form>
+		<div *ngIf="errorMessage" class="error-message">
+		  <p style="color: red;">{{ errorMessage }}</p>
 		</div>
-		<div class="screen__background">
-			<span class="screen__background__shape screen__background__shape4"></span>
-			<span class="screen__background__shape screen__background__shape3"></span>		
-			<span class="screen__background__shape screen__background__shape2"></span>
-			<span class="screen__background__shape screen__background__shape1"></span>
-		</div>		
+		<div>
+		  <p style="color: black;">Vous n'avez pas de compte? 
+			<a routerLink="/inscription" style="color: sienna;"><em> Inscription </em></a>
+		  </p>
+		  <br>
+		  <a routerLink="/" style="color: rgb(45, 160, 139);"><strong> Accueil </strong></a>
+		</div>
+	  </div>
+	  <div class="screen__background">
+		<span class="screen__background__shape screen__background__shape4"></span>
+		<span class="screen__background__shape screen__background__shape3"></span>    
+		<span class="screen__background__shape screen__background__shape2"></span>
+		<span class="screen__background__shape screen__background__shape1"></span>
+	  </div>    
 	</div>
-</div>
+  </div>
+  

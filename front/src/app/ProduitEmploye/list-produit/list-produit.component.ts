@@ -4,6 +4,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 
+import { AuthService } from 'src/app/services/auth.service'; 
+
 @Component({
   selector: 'app-list-produit',
   templateUrl: './list-produit.component.html',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 export class ListProduitEmployeComponent implements OnInit {
 
   produits : Produit[] = [];
-  constructor(private produitService: ProduitService, private router: Router) { }
+  constructor(private produitService: ProduitService, private router: Router,private authService: AuthService) { }
 
   listData = new MatTableDataSource<Produit>();
 
@@ -36,6 +38,14 @@ export class ListProduitEmployeComponent implements OnInit {
     this.getProduit();
     this.listData.sort = this.sort;
     this.listData.paginator = this.paginator;
+  }
+
+  logout() {
+    this.authService.logout();
+  }
+ 
+  goHome(){
+    this.router.navigate(['']);
   }
 
   getProduit(){

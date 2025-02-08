@@ -35,7 +35,7 @@ body {
 	z-index: 1;
 	position: relative;	
 	height: 100%;
-	margin-top: -150px;
+	margin-top: 30px;
 }
 
 .screen__background {		
@@ -141,6 +141,8 @@ body {
 	box-shadow: 0px 2px 2px #0a0157;
 	cursor: pointer;
 	transition: .2s;
+	width: 250px;
+	margin-left: 40px;
 }
 
 .login__submit:active,

@@ -10,20 +10,23 @@
   <meta name="author" content="">
 
   <style>
-    span{
+    span {
       font-size: 16px;
     }
-      body{
-          margin-top: 0;
-          margin-left: 0;
-      }
+
+    body {
+      margin-top: 0;
+      margin-left: 0;
+    }
   </style>
   <title>Jakar-Senegal</title>
 
   <!-- Custom fonts for this template-->
   <link href="" rel="stylesheet">
 
-  <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+    rel="stylesheet">
 
 </head>
 
@@ -37,10 +40,11 @@
 
       <!-- Sidebar - Brand -->
       <a class="sidebar-brand d-flex align-items-center justify-content-center" href="/produit">
-        <img src="assets/img/logoAvant.png" alt="Logo" class="sidebar-brand-icon" style="width: 150px;border-radius:100px;margin-top: 100px;">
+        <img src="assets/img/logoAvant.png" alt="Logo" class="sidebar-brand-icon"
+          style="width: 150px;border-radius:100px;margin-top: 100px;">
       </a>
-      
-<br><br><br><br>
+
+      <br><br><br><br>
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
 
@@ -54,14 +58,14 @@
       <div class="sidebar-heading">
         <h6 style="color: white;">
           <strong>
-          Gestion de ventes
-        </strong>
+            Gestion de ventes
+          </strong>
         </h6>
-        
+
       </div>
 
 
-      
+
 
       <!-- Nav Item - Charts -->
 
@@ -70,18 +74,18 @@
           <i class="fas fa-fw fa-table"></i>
           <span style="font-size: 16px;">Produit</span></a>
       </li>
-      
-    
 
-    
-        <!-- Divider -->
-        <hr class="sidebar-divider my-0">
 
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/employe">
-              <i class="fa fa-child fa-3x"></i>
-              <span style="font-size: 16px;">Employe</span></a>
-          </li>
+
+
+      <!-- Divider -->
+      <hr class="sidebar-divider my-0">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/employe">
+          <i class="fa fa-child fa-3x"></i>
+          <span style="font-size: 16px;">Employe</span></a>
+      </li>
 
       <!-- Divider -->
       <hr class="sidebar-divider my-0">
@@ -107,7 +111,7 @@
 
       <br><br>
 
-   
+
 
     </ul>
     <!-- End of Sidebar -->
@@ -126,27 +130,31 @@
             <i class="fa fa-bars"></i>
           </button>
 
-          
+
 
           <!-- Topbar Navbar -->
           <ul class="navbar-nav ml-auto">
-            
-            
+
+
 
             <!-- Nav Item - User Information -->
             <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" routerLink="/profil" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin connecté</span> &nbsp; <i class="fas fa-user" style="color: #00124f;"></i> 
+              <a class="nav-link dropdown-toggle" routerLink="/profil" id="userDropdown" role="button"
+                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <span class="mr-2 d-none d-lg-inline text-gray-600 small">Admin connecté</span> &nbsp; <i
+                  class="fas fa-user" style="color: #00124f;"></i>
               </a>
             </li>
 
             <div class="topbar-divider d-none d-sm-block"></div>
 
-            <li class="nav-item dropdown no-arrow">
-              <a class="nav-link dropdown-toggle" routerLink="/profil" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <span><a routerLink="/profil"><span class="glyphicon glyphicon-log-in"></span> Déconnexion</a></span>
-              </a>
+            <li class="nav-item">
+              <button class="btn btn-link nav-link" (click)="logout()" style="border: none; background: none; padding: 0;">
+                <i class="fas fa-sign-out-alt" style="color: #7d0101;"></i>
+              </button>
             </li>
+            
+
 
           </ul>
 
@@ -156,9 +164,9 @@
         <!-- Begin Page Content -->
         <div class="container-fluid">
 
-              
-        <router-outlet></router-outlet>
-        
+
+          <router-outlet></router-outlet>
+
         </div>
         <!-- /.container-fluid -->
 

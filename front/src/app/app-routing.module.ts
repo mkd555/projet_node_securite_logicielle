@@ -1,6 +1,4 @@
-import { UpdateProfilComponent } from './profil/update-profil/update-profil.component';
-import { AddProfilComponent } from './profil/add-profil/add-profil.component';
-import { ListProfilComponent } from './profil/list-profil/list-profil.component';
+
 import { AddClientComponent } from './Client/add-client/add-client.component';
 import { UpdateEmployeComponent } from './Employe/update-employe/update-employe.component';
 import { AddEmployeComponent } from './Employe/add-employe/add-employe.component';
@@ -23,6 +21,7 @@ import { InscriptionComponent } from './inscription/inscription.component';
 import { DashboardClientComponent } from './dashboard-client/dashboard-client.component';
 import { DashboardEmployeComponent } from './dashboard-employe/dashboard-employe.component';
 import { ListePaniersPayesComponent } from './liste-paniers-payes/liste-paniers-payes.component';
+import { ProfilComponent } from './profil/profil.component';
 
 const routes: Routes = [
 
@@ -49,7 +48,8 @@ const routes: Routes = [
       component: ListProduitClientComponent },
       { path: 'dashboardClient/paiement', 
         component: PaiementComponent },
-
+        { path: 'profil', 
+          component: ProfilComponent },
         { path: 'paiement', 
           component: ListePaniersPayesComponent },
   { path: 'employe', 
@@ -64,12 +64,6 @@ const routes: Routes = [
   component: AddClientComponent },
   { path: 'updateClient', 
   component: UpdateClientComponent },
-  { path: 'profil', 
-  component: ListProfilComponent },
-  { path: 'addProfil', 
-  component: AddProfilComponent },
-  { path: 'updateProfil', 
-  component: UpdateProfilComponent },
   { path: 'dashboardClient', 
     component: DashboardClientComponent },
     { path: 'dashboardEmploye', 

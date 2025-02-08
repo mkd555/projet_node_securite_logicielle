@@ -4,6 +4,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatSort, MatPaginator, MatTableDataSource } from '@angular/material';
 import { Router } from '@angular/router';
 
+import { AuthService } from 'src/app/services/auth.service'; 
+
 @Component({
   selector: 'app-list-produit',
   templateUrl: './list-produit.component.html',
@@ -12,7 +14,7 @@ import { Router } from '@angular/router';
 export class ListProduitClientComponent implements OnInit {
 
   produits : Produit[] = [];
-  constructor(private produitService: ProduitService, private router: Router) { }
+  constructor(private produitService: ProduitService, private router: Router,private authService: AuthService) { }
 
   listData = new MatTableDataSource<Produit>();
 
@@ -50,8 +52,13 @@ export class ListProduitClientComponent implements OnInit {
     this.listData.filter = filterValue.trim().toLowerCase();
   }
 
-
+  logout() {
+    this.authService.logout();
+  }
  
+  goHome(){
+    this.router.navigate(['']);
+  }
 
   commander(row: any) {
     console.log('Commande passée pour :', row);

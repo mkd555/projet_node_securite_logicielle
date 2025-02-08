@@ -2,66 +2,92 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 </head>
+
 <div class="container text-center">
     <div class="screen" style="margin-left: 0px;">
         <div class="screen__content">
-            <form class="login" method="POST" action="/register">
+            <form (ngSubmit)="onSubmit()" #signupForm="ngForm" novalidate>
+
                 <!-- Champ pour le nom -->
                 <div class="login__field">
                     <i class="login__icon fas fa-user"></i>
-                    <input type="text" class="login__input" name="first_name" placeholder="First Name" required pattern="[A-Za-z]+">
-                    <!-- Validation pour accepter uniquement les lettres alphabétiques -->
+                    <input type="text" class="login__input" name="nom" [(ngModel)]="user.nom" placeholder="Nom"
+                        required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$" #nom="ngModel">
+                    <div *ngIf="nom.invalid && nom.touched" class="error-message">
+                        Le nom ne doit contenir que des lettres et espaces.
+                    </div>
                 </div>
+
                 <!-- Champ pour le prénom -->
                 <div class="login__field">
                     <i class="login__icon fas fa-user"></i>
-                    <input type="text" class="login__input" name="last_name" placeholder="Last Name" required pattern="[A-Za-z]+">
-                    <!-- Validation pour accepter uniquement les lettres alphabétiques -->
+                    <input type="text" class="login__input" name="prenom" [(ngModel)]="user.prenom" placeholder="Prénom"
+                        required pattern="^[A-Za-zÀ-ÖØ-öø-ÿ\s'-]+$" #prenom="ngModel">
+                    <div *ngIf="prenom.invalid && prenom.touched" class="error-message">
+                        Le prénom ne doit contenir que des lettres et espaces.
+                    </div>
                 </div>
+
                 <!-- Champ pour le numéro de téléphone -->
                 <div class="login__field">
                     <i class="login__icon fas fa-phone"></i>
-                    <input type="tel" class="login__input" name="phone" placeholder="Phone Number" required pattern="^\+?[0-9]{10,15}$">
-                    <!-- Validation pour accepter des numéros de téléphone au format international -->
+                    <input type="tel" class="login__input" name="telephone" [(ngModel)]="user.telephone"
+                        placeholder="Numéro de téléphone" required pattern="^\+?[0-9]{9,15}$" #telephone="ngModel">
+                    <div *ngIf="telephone.invalid && telephone.touched" class="error-message">
+                        Entrez un numéro de téléphone valide (9-15 chiffres).
+                    </div>
                 </div>
-                <!-- Champ pour l'adresse -->
+
+                <!-- Champ pour l'email -->
                 <div class="login__field">
-                    <i class="login__icon fas fa-home"></i>
-                    <input type="text" class="login__input" name="address" placeholder="Address" required>
-                    <!-- Aucune validation spécifique mais il est requis -->
+                    <i class="login__icon fas fa-envelope"></i>
+                    <input type="email" class="login__input" name="email" [(ngModel)]="user.email"
+                        placeholder="Email" required email #email="ngModel">
+                    <div *ngIf="email.invalid && email.touched" class="error-message">
+                        Entrez un email valide.
+                    </div>
                 </div>
-                <!-- Champ pour le nom d'utilisateur / Email -->
-                <div class="login__field">
-                    <i class="login__icon fas fa-user"></i>
-                    <input type="email" class="login__input" name="email" placeholder="User name / Email" required>
-                    <!-- L'attribut 'required' garantit que le champ est non vide -->
-                </div>
+
                 <!-- Champ pour le mot de passe -->
                 <div class="login__field">
                     <i class="login__icon fas fa-lock"></i>
-                    <input type="password" class="login__input" name="password" placeholder="Password" required minlength="8">
-                    <!-- Validation pour un mot de passe fort avec une longueur minimale de 8 caractères -->
+                    <input type="password" class="login__input" name="password" [(ngModel)]="user.password"
+                        placeholder="Mot de passe" required minlength="8" pattern="^(?=.*[A-Z])(?=.*\d).{8,}$" #password="ngModel">
+                    <div *ngIf="password.invalid && password.touched" class="error-message">
+                        Le mot de passe doit contenir au moins 8 caractères, une majuscule et un chiffre.
+                    </div>
                 </div>
+
                 <!-- Champ pour confirmer le mot de passe -->
                 <div class="login__field">
                     <i class="login__icon fas fa-lock"></i>
-                    <input type="password" class="login__input" name="confirm_password" placeholder="Confirm Password" required minlength="8">
-                    <!-- Validation du mot de passe par rapport à la confirmation -->
+                    <input type="password" class="login__input" name="confirm_password" [(ngModel)]="user.confirm_password"
+                        placeholder="Confirmer le mot de passe" required minlength="8" #confirm_password="ngModel">
+                    <div *ngIf="confirm_password.invalid && confirm_password.touched" class="error-message">
+                        Confirmation requise.
+                    </div>
+                    <div *ngIf="user.password !== user.confirm_password && confirm_password.touched" class="error-message">
+                        Les mots de passe ne correspondent pas.
+                    </div>
                 </div>
+
                 <!-- Bouton d'inscription -->
-                <button type="submit" class="button login__submit">
-                    <span class="button__text">Sign Up</span>
+                <button type="submit" class="button login__submit" [disabled]="signupForm.invalid">
+                    <span class="button__text">S'inscrire</span>
                     <i class="button__icon fas fa-chevron-right"></i>
                 </button>  
             </form>
 
+            <br><br>
             <div>
                 <p style="color: black;">Vous avez déjà un compte? <a href="/connexion" style="color: sienna;"><em> Se Connecter </em></a></p>
                 <br><a href="/" style="color: rgb(45, 160, 139);"><strong> Accueil </strong></a>
             </div>
+
             <!-- Message d'erreur ou confirmation de réussite -->
             <div class="error-message" id="error-message"></div>
         </div>
+
         <div class="screen__background">
             <span class="screen__background__shape screen__background__shape4"></span>
             <span class="screen__background__shape screen__background__shape3"></span>        

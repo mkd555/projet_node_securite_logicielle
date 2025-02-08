@@ -3,6 +3,8 @@ import { Produit } from './../../model/produit';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
+import { AuthService } from 'src/app/services/auth.service'; 
+
 @Component({
   selector: 'app-add-produit',
   templateUrl: './add-produit.component.html',
@@ -24,7 +26,7 @@ export class AddProduitEmployeComponent implements OnInit {
   };
 
 
-  constructor(private service: ProduitService, private router: Router) { }
+  constructor(private service: ProduitService, private router: Router,private authService: AuthService) { }
 
   ngOnInit() {
   }
@@ -37,6 +39,14 @@ export class AddProduitEmployeComponent implements OnInit {
 
   produis : Produit[] = [];
 
+
+  logout() {
+    this.authService.logout();
+  }
+ 
+  goHome(){
+    this.router.navigate(['']);
+  }
 
   add() {
     console.log(this.produit);

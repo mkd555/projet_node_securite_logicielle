@@ -1,9 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { BehaviorSubject } from 'rxjs';
 import { tap, catchError } from 'rxjs/operators';
-
 
 @Injectable({
   providedIn: 'root'
@@ -11,56 +9,94 @@ import { tap, catchError } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://localhost:3300/api/login';
   private tokenKey = 'auth_token';
-  private isAuthenticated = new BehaviorSubject<boolean>(this.hasToken());
+  private roleKey = 'user_role'; // Stockage du rôle
+  private maxAttempts = 3;
+  private lockoutTime = 5 * 60 * 1000; // 5 minutes en millisecondes
 
   constructor(private http: HttpClient, private router: Router) {}
 
   login(email: string, password: string) {
-    console.log('Attempting to login with email:', email); // Log email
-    return this.http.post<{ token: string }>(this.apiUrl, { email, password }).pipe(
+    return this.http.post<{ token: string; role: string }>(this.apiUrl, { email, password }).pipe(
       tap(response => {
-        console.log('Login response:', response); // Log login response
         if (response && response.token) {
           this.saveToken(response.token);
-        } else {
-          console.log('No token received on login');
+          this.saveRole(response.role); // Sauvegarde du rôle
+          this.redirectUserByRole(response.role); // Redirection après connexion
         }
       }),
       catchError(error => {
-        console.error('Login error:', error); // Log any login error
         throw error;
       })
     );
   }
 
-  logout() {
-    console.log('Logging out...'); // Log when the user logs out
-    localStorage.removeItem(this.tokenKey);
-    this.isAuthenticated.next(false);
-    this.router.navigate(['/login']);
+  saveToken(token: string) {
+    localStorage.setItem(this.tokenKey, token);
+    this.resetLoginAttempts();
   }
 
-  saveToken(token: string) {
-    console.log('Saving token to localStorage:', token); // Log token save
-    localStorage.setItem(this.tokenKey, token);
-    this.isAuthenticated.next(true);
+  saveRole(role: string) {
+    localStorage.setItem(this.roleKey, role);
+  }
+
+  getRole(): string | null {
+    return localStorage.getItem(this.roleKey);
+  }
+
+  logout() {
+    localStorage.removeItem(this.tokenKey);
+    localStorage.removeItem(this.roleKey);
+    this.router.navigate(['/connexion']);
   }
 
   getToken(): string | null {
-    const token = localStorage.getItem(this.tokenKey);
-    console.log('Retrieved token from localStorage:', token); // Log token retrieval
-    return token;
+    return localStorage.getItem(this.tokenKey);
   }
 
   isLoggedIn() {
-    const status = this.isAuthenticated.getValue();
-    console.log('User isLoggedIn status:', status); // Log authentication status
-    return this.isAuthenticated.asObservable();
+    return !!this.getToken();
   }
 
-  private hasToken(): boolean {
-    const hasToken = !!localStorage.getItem(this.tokenKey);
-    console.log('Has token in localStorage:', hasToken); // Log token presence
-    return hasToken;
+  getLoginAttempts(): number {
+    return Number(localStorage.getItem('loginAttempts')) || 0;
+  }
+
+  incrementLoginAttempts() {
+    let attempts = this.getLoginAttempts() + 1;
+    localStorage.setItem('loginAttempts', attempts.toString());
+  }
+
+  resetLoginAttempts() {
+    localStorage.removeItem('loginAttempts');
+    localStorage.removeItem('lockoutTime');
+  }
+
+  setLockTime() {
+    localStorage.setItem('lockoutTime', Date.now().toString());
+  }
+
+  isLocked(): boolean {
+    const lockoutTime = Number(localStorage.getItem('lockoutTime')) || 0;
+    if (!lockoutTime) return false;
+
+    const elapsed = Date.now() - lockoutTime;
+    if (elapsed < this.lockoutTime) {
+      return true;
+    } else {
+      this.resetLoginAttempts();
+      return false;
+    }
+  }
+
+  redirectUserByRole(role: string) {
+    if (role === 'client') {
+      this.router.navigate(['/dashboardClient']);
+    } else if (role === 'employe') {
+      this.router.navigate(['/dashboardEmploye']);
+    } else if (role === 'admin') {
+      this.router.navigate(['/produit']);
+    } else {
+      this.router.navigate(['/']);
+    }
   }
 }

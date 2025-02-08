@@ -16,9 +16,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './material/material/material.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { ListProfilComponent } from './profil/list-profil/list-profil.component';
-import { AddProfilComponent } from './profil/add-profil/add-profil.component';
-import { UpdateProfilComponent } from './profil/update-profil/update-profil.component';
 import { HomeComponent } from './home/home.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';
@@ -35,6 +32,7 @@ import { AddProduitEmployeComponent } from './ProduitEmploye/add-produit/add-pro
 import { UpdateProduitEmployeComponent } from './ProduitEmploye/update-produit/update-produit.component';
 import { PaiementComponent } from './paiement/paiement.component';
 import { ListePaniersPayesComponent } from './liste-paniers-payes/liste-paniers-payes.component';
+import { ProfilComponent } from './profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -46,9 +44,6 @@ import { ListePaniersPayesComponent } from './liste-paniers-payes/liste-paniers-
     AddClientComponent,
     ListClientComponent,
     UpdateClientComponent,
-    ListProfilComponent,
-    AddProfilComponent,
-    UpdateProfilComponent,
     HomeComponent,
     ConnexionComponent,
     InscriptionComponent,
@@ -62,7 +57,8 @@ import { ListePaniersPayesComponent } from './liste-paniers-payes/liste-paniers-
     AddProduitEmployeComponent,
     UpdateProduitEmployeComponent,
     PaiementComponent,
-    ListePaniersPayesComponent
+    ListePaniersPayesComponent,
+    ProfilComponent
    
   ],
   imports: [
