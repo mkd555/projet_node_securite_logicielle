@@ -23,7 +23,7 @@ export const login = async (req, res) => {
       process.env.SECRET_KEY,
       { expiresIn: "1h" }
     );
-    res.json({ message: "Connexion réussie", token });
+    res.json({ message: "Connexion réussie", token , role: user.role});
   } catch (error) {
     res.status(500).json({ message: "Erreur serveur", error });
   }
