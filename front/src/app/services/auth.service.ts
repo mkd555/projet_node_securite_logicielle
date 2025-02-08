@@ -91,7 +91,7 @@ export class AuthService {
   redirectUserByRole(role: string) {
     if (role === 'client') {
       this.router.navigate(['/dashboardClient']);
-    } else if (role === 'employe') {
+    } else if (role === 'employer') {
       this.router.navigate(['/dashboardEmploye']);
     } else if (role === 'admin') {
       this.router.navigate(['/produit']);
