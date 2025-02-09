@@ -20,6 +20,7 @@ export default function (sequelize) {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+   
   });
   return Produit;
 }

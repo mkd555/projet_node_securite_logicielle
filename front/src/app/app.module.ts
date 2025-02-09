@@ -2,7 +2,6 @@ import { ProduitService } from './services/produit.service';
 import { RouterModule } from '@angular/router';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SideMenuComponent } from './Dashboard/side-menu/side-menu.component';
@@ -12,10 +11,6 @@ import { UpdateProduitComponent } from './Produit/update-produit/update-produit.
 import { AddClientComponent } from './Client/add-client/add-client.component';
 import { ListClientComponent } from './Client/list-client/list-client.component';
 import { UpdateClientComponent } from './Client/update-client/update-client.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from './material/material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 import { HomeComponent } from './home/home.component';
 import { ConnexionComponent } from './connexion/connexion.component';
 import { InscriptionComponent } from './inscription/inscription.component';

@@ -56,7 +56,7 @@ export const deleteEmploye = (req,res) =>{
 export const addProduit = (req, res) => {
     Produit.create(req.body)
       .then((prod) => {
-        res.status(204).json(prod);
+        res.status(203).json({"message":"Poduit added successfully"});
       })
       .catch((err) => {
         res.status(404).json({ error: err.message });
@@ -87,11 +87,7 @@ export const updateProduit = (req,res) =>{
   Produit.findByPk(req.params.id)
   .then(()=>{
     Produit.update(
-      {
-      libelle : req.body.libelle,
-      categorie : req.body.categorie,
-      quantite: req.body.quantite
-  },{where :{id:req.params.id}})
+      req.body,{where :{id:req.params.id}})
   res.status(200).json({"message":"Produit updated successfully"})
   }).catch((error)=>{
     res.status(404).json(error)
