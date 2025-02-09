@@ -1,7 +1,8 @@
-import Employe from "../models/employeModel.js";
-import Produit from "../models/produitModel.js";
+import sequelize from "../config/sequelize";
 
-
+//Importation des model
+const Produit = sequelize.models.Produit
+const Employe = sequelize.models.Employe
 
 //Get all Employe
 export const getEmploye = (req, res) => {
@@ -79,6 +80,22 @@ export const getProduitByID = (req,res) =>{
     }).catch((err) =>{
         res.status(404).json({ error: err.message });
     })
+}
+
+//Update Produit
+export const updateProduit = (req,res) =>{
+  Produit.findByPk(req.params.id)
+  .then(()=>{
+    Produit.update(
+      {
+      libelle : req.body.libelle,
+      categorie : req.body.categorie,
+      quantite: req.body.quantite
+  },{where :{id:req.params.id}})
+  res.status(200).json({"message":"Produit updated successfully"})
+  }).catch((error)=>{
+    res.status(404).json(error)
+  })
 }
 
 //Delete Produit
