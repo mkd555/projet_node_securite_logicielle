@@ -1,4 +1,4 @@
-import sequelize from "../config/sequelize";
+import sequelize from "../config/sequelize.js";
 
 //Importation des model
 const Produit = sequelize.models.Produit
